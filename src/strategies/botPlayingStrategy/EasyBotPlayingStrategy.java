@@ -1,4 +1,8 @@
 package strategies.botPlayingStrategy;
 
-public class EasyBotPlayingStrategy {
+public class EasyBotPlayingStrategy implements BotPlayingStrategy{
+    @Override
+    public void makeMove() {
+
+    }
 }

@@ -1,4 +1,4 @@
-package strategies;
+package strategies.winningStrategy;
 
 public class DiagonalWinningStrategy implements WinningStrategy{
     @Override

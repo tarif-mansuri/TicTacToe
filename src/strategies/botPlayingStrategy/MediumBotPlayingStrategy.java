@@ -1,4 +1,8 @@
 package strategies.botPlayingStrategy;
 
-public class MediumBotPlayingStrategy {
+public class MediumBotPlayingStrategy implements BotPlayingStrategy{
+    @Override
+    public void makeMove() {
+
+    }
 }
