@@ -1,15 +1,29 @@
+import exceptions.InvalidBotCountException;
+import exceptions.InvalidPlayerCountException;
+import exceptions.InvalidStrategyException;
+import models.Game;
+import models.Player;
+import models.PlayerType;
+import models.Symbol;
+import strategies.winningStrategy.WinningStrategy;
+
+import java.util.ArrayList;
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    public static void main(String[] args) throws InvalidBotCountException, InvalidPlayerCountException, InvalidStrategyException {
+        startGame();
+    }
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+    public static void startGame() throws InvalidBotCountException, InvalidStrategyException, InvalidPlayerCountException {
+        Player player1 = new Player("A", new Symbol('@'), PlayerType.HUMAN);
+        Player player2 = new Player("B", new Symbol('*'), PlayerType.BOT);
+        Player player3 = new Player("C", new Symbol('%'), PlayerType.HUMAN);
+        List<Player> players = List.of(player1, player2, player3);
+
+        List<WinningStrategy> strategy = new ArrayList<>();
+        Game game = Game.getBuilder().setDimension(4).setPlayers(players).setStrategies(strategy).build();
     }
 }

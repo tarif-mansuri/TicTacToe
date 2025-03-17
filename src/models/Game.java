@@ -47,6 +47,10 @@ public class Game {
         this.gameState = GameState.IN_PROGRESS;
     }
 
+    public static Builder getBuilder() {
+        return new Builder();
+    }
+
     public static class Builder {
         private List<Player> players;
         private List<WinningStrategy> strategies;
