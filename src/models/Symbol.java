@@ -1,8 +1,12 @@
 package models;
 
 public class Symbol {
-    private Character character;
-    public Symbol(Character character) {
-        this.character = character;
+    private char charA;
+    public Symbol(char symbol) {
+        this.charA = symbol;
+    }
+
+    public char getCharA() {
+        return charA;
     }
 }

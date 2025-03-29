@@ -1,15 +1,16 @@
 package models;
 
-import strategies.botPlayingStrategy.BotPlayingStrategy;
+import factory.BotPlayingStrategyFactory;
+import strategies.botPlayingStrategies.BotPlayingStrategy;
 
 public class Bot extends Player {
-    private BotDifficultiLevel difficultiLevel;
+    private BotDifficultyLevel difficultyLevel;
     private BotPlayingStrategy strategy;
-    public Bot(String name, Symbol symbol, BotDifficultiLevel difficultiLevel, BotPlayingStrategy strategy) {
+    public Bot(String name, Symbol symbol, BotDifficultyLevel difficultyLevel) {
         super(name, symbol, PlayerType.BOT);
-        this.difficultiLevel = difficultiLevel;
-        this.strategy = strategy;
+        this.difficultyLevel = difficultyLevel;
+        //factory pattern to create object of BotPlayingStrategy
+        this.strategy = BotPlayingStrategyFactory.getBotPlayingStrategy(difficultyLevel);
     }
-}
 
-/* Bot should have a family of algorithms depending on difficulty level. it will make move differently */
+}
